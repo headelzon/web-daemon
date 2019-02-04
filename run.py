@@ -4,6 +4,7 @@ import sys
 import os
 import logging
 import argparse
+import pathlib
 
 from daemon import Daemon
 from core import main
@@ -34,6 +35,8 @@ def setup(logs=False):
 
 
 path = os.getcwd()
+pathlib.Path("./resources").mkdir(exist_ok=True)
+pathlib.Path("./logs").mkdir(exist_ok=True)
 
 logger = logging.getLogger('web-daemon')
 logger.setLevel(logging.DEBUG)
